@@ -1,0 +1,48 @@
+<idea-plugin>
+    <id>com.the0day.tinify</id>
+    <name>Tinify Image Optimizer</name>
+    <vendor email="nomadify@proton.me">The0Day</vendor>
+
+    <description><![CDATA[
+    This plugin enables efficient conversion and compression of JPG and PNG images using the <a href="https://tinify.com/">Tinify API</a>, reducing file sizes without sacrificing quality
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+    <idea-version since-build="163"/>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.the0day.tinify.PluginGlobalSettings"/>
+        <!-- Add your extensions here -->
+        <errorHandler implementation="com.the0day.tinify.diagnostic.ErrorReportHandler"/>
+        <applicationConfigurable
+                instance="com.the0day.tinify.ui.settings.Settings"
+                displayName="Tinify Image Optimize"
+                id="The0Day.Tinify"
+                groupId="tools"
+        />
+    </extensions>
+
+    <actions>
+        <group id="TinifyImageOptimizer" text="Tinify Image Optimizer" popup="true" icon="/icons/action.svg" class="com.the0day.tinify.actions.CompressActionGroup">
+            <action id="TinifyImageOptimizerDialog"
+                    class="com.the0day.tinify.actions.CompressDialogAction"
+                    icon="/icons/action.svg"
+                    text="Optimize Images..."
+                    description="Optimize Image size with Tinify"/>
+            <action id="TinifyImageOptimizerBackground"
+                    class="com.the0day.tinify.actions.CompressBackgroundAction"
+                    icon="/icons/action.svg"
+                    text="Optimize in Background"
+                    description="Optimize Image size with Tinify in Background"/>
+
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </group>
+    </actions>
+    <application-components>
+        <component>
+            <implementation-class>com.the0day.tinify.PluginApplicationComponent</implementation-class>
+        </component>
+    </application-components>
+</idea-plugin>
