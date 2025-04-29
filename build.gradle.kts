@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.the0day"
-version = "1.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -33,8 +33,8 @@ tasks.withType<JavaCompile> {
 
 tasks {
     patchPluginXml {
-        sinceBuild.set("243")
-        untilBuild.set("243.*")
+        sinceBuild.set("232")
+        untilBuild.set("259.*")
     }
     signPlugin {
 
