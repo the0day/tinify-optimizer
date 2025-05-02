@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.the0day.tinify</id>
     <name>Tinify Image Optimizer</name>
-    <vendor email="nomadify@proton.me">The0Day</vendor>
+    <vendor email="abysses-fire.75@icloud.com">The0Day</vendor>
 
     <description><![CDATA[
     This plugin enables efficient conversion and compression of JPG and PNG images using the <a href="https://tinify.com/">Tinify API</a>, reducing file sizes without sacrificing quality
