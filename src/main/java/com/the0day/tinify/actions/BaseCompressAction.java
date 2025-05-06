@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class BaseCompressAction extends AnAction {
-    private static final String[] supportedExtensions = {"png", "jpg", "jpeg"};
+    private static final String[] supportedExtensions = {"png", "jpg", "jpeg", "webp"};
 
     @Override
     public void actionPerformed(AnActionEvent e) {

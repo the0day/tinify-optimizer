@@ -1,6 +1,6 @@
 package com.the0day.tinify.diagnostic;
 
-import com.intellij.diagnostic.AbstractMessage;
+//import com.intellij.diagnostic.AbstractMessage;
 import com.intellij.openapi.diagnostic.ErrorReportSubmitter;
 import com.intellij.openapi.diagnostic.IdeaLoggingEvent;
 import com.intellij.openapi.diagnostic.SubmittedReportInfo;
@@ -24,14 +24,13 @@ public class ErrorReportHandler extends ErrorReportSubmitter {
             @NotNull Component parentComponent,
             @NotNull Consumer<? super SubmittedReportInfo> consumer
     ){
-        for (IdeaLoggingEvent event : events) {
-            Throwable throwable = event.getThrowable();
-            if (event.getData() instanceof AbstractMessage) {
-                throwable = ((AbstractMessage) event.getData()).getThrowable();
-            }
-
+//        for (IdeaLoggingEvent event : events) {
+//            Throwable throwable = event.getThrowable();
+//            if (event.getData() instanceof AbstractMessage) {
+//                throwable = ((AbstractMessage) event.getData()).getThrowable();
+//            }
             //SentryErrorReporter.submitErrorReport(throwable, additionalInfo, consumer);
-        }
+//        }
 
         return true;
     }

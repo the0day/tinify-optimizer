@@ -14,11 +14,5 @@ public class CompressActionGroup extends DefaultActionGroup {
         }
 
         firstRun = false;
-        if (this.isPopup()) {
-            AnAction[] actions = this.getChildren(e);
-            for (AnAction action : actions) {
-                action.getTemplatePresentation().setIcon(null);
-            }
-        }
     }
 }

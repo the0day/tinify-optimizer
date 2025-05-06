@@ -1,19 +1,36 @@
 <idea-plugin>
     <id>com.the0day.tinify</id>
     <name>Tinify Image Optimizer</name>
-    <vendor email="abysses-fire.75@icloud.com">The0Day</vendor>
+    <vendor email="abysses-fire.75@icloud.com" url="https://github.com/the0day/tinify-optimizer">The0Day</vendor>
 
     <description><![CDATA[
-    This plugin enables efficient conversion and compression of JPG and PNG images using the <a href="https://tinify.com/">Tinify API</a>, reducing file sizes without sacrificing quality
-    ]]></description>
+Compress and optimize your PNG, JPG, and WebP images directly in your IDE using the <a href="https://tinify.com/">Tinify API</a>.
+<br>
+This plugin supports:
+<ul>
+    <li>Lossless optimization of PNG, JPG, and WebP formats</li>
+    <li>Interactive windowed mode with before/after preview</li>
+    <li>Batch compression in the background</li>
+</ul>
+<br>
+A simple way to keep your images lightweight without leaving your workflow.
+<br>
+<br>
+<b>Keywords:</b>
+tinify, tinypng, image optimizer, png optimizer, jpg shrinker, webp compression, tinify plugin, IDE image tool, reduce image size
+]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.lang</depends>
-    <idea-version since-build="163"/>
+    <idea-version since-build="232.0" until-build="251.*"/>
     <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.the0day.tinify.PluginApplicationService"/>
         <applicationService serviceImplementation="com.the0day.tinify.PluginGlobalSettings"/>
-        <!-- Add your extensions here -->
+        <notificationGroup id="Tinify Image Optimizer"
+                           displayType="STICKY_BALLOON"
+                           isLogByDefault="true"/>
+
         <errorHandler implementation="com.the0day.tinify.diagnostic.ErrorReportHandler"/>
         <applicationConfigurable
                 instance="com.the0day.tinify.ui.settings.Settings"
@@ -24,15 +41,13 @@
     </extensions>
 
     <actions>
-        <group id="TinifyImageOptimizer" text="Tinify Image Optimizer" popup="true" icon="/icons/action.svg" class="com.the0day.tinify.actions.CompressActionGroup">
+        <group id="TinifyImageOptimizer" text="Tinify Image Optimizer" popup="true">
             <action id="TinifyImageOptimizerDialog"
                     class="com.the0day.tinify.actions.CompressDialogAction"
-                    icon="/icons/action.svg"
                     text="Optimize Images..."
                     description="Optimize Image size with Tinify"/>
             <action id="TinifyImageOptimizerBackground"
                     class="com.the0day.tinify.actions.CompressBackgroundAction"
-                    icon="/icons/action.svg"
                     text="Optimize in Background"
                     description="Optimize Image size with Tinify in Background"/>
 
@@ -40,9 +55,4 @@
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </group>
     </actions>
-    <application-components>
-        <component>
-            <implementation-class>com.the0day.tinify.PluginApplicationComponent</implementation-class>
-        </component>
-    </application-components>
 </idea-plugin>

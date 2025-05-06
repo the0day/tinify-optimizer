@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.the0day"
-version = "1.0.1"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
@@ -33,8 +33,15 @@ tasks.withType<JavaCompile> {
 
 tasks {
     patchPluginXml {
+        changeNotes.set(
+            """
+            - Migrated plugin to modern IntelliJ Platform APIs<br>
+            - Improved compatibility with future IntelliJ versions
+            """.trimIndent()
+        )
+
         sinceBuild.set("232")
-        untilBuild.set("259.*")
+        untilBuild.set("251.*")
     }
     signPlugin {
 
