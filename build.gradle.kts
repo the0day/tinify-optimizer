@@ -35,13 +35,12 @@ tasks {
     patchPluginXml {
         changeNotes.set(
             """
-            - Migrated plugin to modern IntelliJ Platform APIs<br>
-            - Improved compatibility with future IntelliJ versions
+            - Update to support latest IDE version
             """.trimIndent()
         )
 
         sinceBuild.set("232")
-        untilBuild.set("251.*")
+        untilBuild.set("252.*")
     }
     signPlugin {
 

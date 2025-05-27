@@ -23,7 +23,7 @@ tinify, tinypng, image optimizer, png optimizer, jpg shrinker, webp compression,
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.lang</depends>
-    <idea-version since-build="232.0" until-build="251.*"/>
+    <idea-version since-build="232.0" until-build="252.*"/>
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.the0day.tinify.PluginApplicationService"/>
         <applicationService serviceImplementation="com.the0day.tinify.PluginGlobalSettings"/>
