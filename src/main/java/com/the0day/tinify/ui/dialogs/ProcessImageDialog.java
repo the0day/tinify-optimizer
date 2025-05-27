@@ -143,8 +143,11 @@ public class ProcessImageDialog extends JDialog {
         splitPanel.setBorder(null);
         clearTitle();
 
-//        titleBefore.setForeground(JBColor.green.darker());
-        titleAfter.setForeground(JBColor.green.darker());
+        getTitleBefore().setForeground(JBColor.foreground().darker());
+        getTitleBefore().setVisible(false);
+
+        getTitleAfter().setForeground(JBColor.GREEN);
+        getTitleAfter().setVisible(false);
     }
 
     @Override
@@ -162,6 +165,14 @@ public class ProcessImageDialog extends JDialog {
 
     public Project getProject() {
         return myProject;
+    }
+
+    public JLabel getTitleBefore() {
+        return (JLabel) titleBefore;
+    }
+
+    public JLabel getTitleAfter() {
+        return (JLabel) titleAfter;
     }
 
     public JImage getImageBefore() {

@@ -103,7 +103,7 @@ public class ProcessActionListener extends ActionListenerBase {
                         }
 
                         float compress = (((float) totalSavedBytes) * 100 / ((float) totalBytes));
-                        String saved = StringFormatUtil.humanReadableByteCount(totalSavedBytes);
+                        String saved = StringFormatUtil.humanReadableKb(totalSavedBytes);
                         dialog.getTotalDetails().setText(String.format("Total compress: %.1f%% / Saved: %s", compress, saved));
                     }
                 });

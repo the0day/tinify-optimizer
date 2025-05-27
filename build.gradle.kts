@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.the0day"
-version = "1.0.3"
+version = "1.0.5"
 
 repositories {
     mavenCentral()
@@ -36,6 +36,7 @@ tasks {
         changeNotes.set(
             """
             - Update to support latest IDE version
+            - Minor UI changes
             """.trimIndent()
         )
 

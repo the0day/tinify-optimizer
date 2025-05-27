@@ -22,6 +22,8 @@ public class ImageSelectListener implements TreeSelectionListener {
     public void valueChanged(TreeSelectionEvent e) {
         FileTreeNode node = (FileTreeNode) myDialog.getTree().getLastSelectedPathComponent();
         try {
+            myDialog.getTitleBefore().setVisible(true);
+            myDialog.getTitleAfter().setVisible(true);
             updateImage(myDialog.getImageBefore(), myDialog.getDetailsBefore(), node.getVirtualFile());
             updateImage(myDialog.getImageAfter(), myDialog.getDetailsAfter(), node.getImageBuffer());
         } catch (IOException e1) {
@@ -53,9 +55,19 @@ public class ImageSelectListener implements TreeSelectionListener {
 
     private void updateImageDetails(JImage imagePanel, JLabel detailsLabel, String prefix) {
         if (imagePanel.getImage() == null) {
-            detailsLabel.setText(prefix + " Size: ---");
+            detailsLabel.setText("");
+//            detailsLabel.setText(prefix + " Size: ---");
         } else {
-            detailsLabel.setText(String.format(prefix + " Size: %s", StringFormatUtil.humanReadableByteCount(imagePanel.getImageSize())));
+            final int width = imagePanel.getImage().getWidth(myDialog);
+            final int height = imagePanel.getImage().getHeight(myDialog);
+            detailsLabel.setText(
+                    String.format(
+                            "<html><center>%s<br><small style='font-size:10px;color:gray;'>%s✕%s</small></center></html>",
+                            StringFormatUtil.humanReadableKb(imagePanel.getImageSize()),
+                            width,
+                            height
+                    )
+            );
         }
     }
 }

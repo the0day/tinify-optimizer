@@ -20,7 +20,7 @@ public class JImage extends JPanel {
     private BufferedImage bgImage;
 
     public JImage() {
-        this.setBorder(BorderFactory.createLineBorder(JBColor.border()));
+//        this.setBorder(BorderFactory.createLineBorder(JBColor.border()));
         this.addComponentListener(new ComponentListener() {
             @Override
             public void componentResized(ComponentEvent e) {
