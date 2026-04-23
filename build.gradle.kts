@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.the0day"
-version = "1.0.6"
+version = "1.0.7"
 
 repositories {
     mavenCentral()
@@ -41,7 +41,7 @@ tasks {
         )
 
         sinceBuild.set("232")
-        untilBuild.set("253.*")
+        untilBuild.set("261.*")
     }
     signPlugin {
 
